@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Party Tickets Order Form</title>
+		<link rel="stylesheet" href="styles/normalize.css">
+		<link rel="stylesheet" href="styles/main.css">
+	</head>
+
+	<body>
+		<!-- header starts -->
+		<header>
+			<img src="images/pumpkin.gif" alt="Pumpkin" width="85">
+			<h2>The Halloween Store</h2>
+			<h3>For the little Goblin in all of us!</h3>
+		</header>
+		
+		<!-- navigation starts -->
+		<nav id="nav_menu">
+			<ul>
+				<li><a href="index.html" class="current">Home</a></li>
+				<li><a href="about_us.html">About Us</a>
+					<ul>						
+						<li><a href="our_history.html">Our History</a></li>
+						<li><a href="our_team.html">Our Team</a></li>
+					</ul>
+				</li>
+				<li><a href="products.html">Our Products</a></li>
+				<li><a href="tickets_order_form.html">Party Tickets</a></li>
+				<li><a href="contact_us.html">Contact Us</a></li>
+			</ul>
+		</nav>
+
+		<!-- main content starts -->
+		<main>
+			<!-- sidebar starts -->
+			<aside>
+				<ul>
+					<li><a href="products/props.html">Props</a></li>
+					<li><a href="products/costumes.html">Costumes</a></li>
+					<li><a href="products/special.html">Special FX</a></li>
+					<li><a href="products/masks.html">Masks</a></li>
+				</ul>
+			</aside>
+
+			<!-- the main section of the content starts -->
+			<section>
+				<h1>Buy Tickets for a Halloween Party</h1>
+				
+                <!-- the order form goes here -->
+            
+                <form name="order_form" id="order_form" action="place_order.html" method="post"> <!-- begin form named order_form with method of POST and when submitted will redirect to place_order.html-->
+                <fieldset> <!-- begins the first fieldset -->
+                    <legend>Member Information</legend> <!-- Title of field set is Member Info -->
+                    <label for="email">E-mail:</label> <!-- Label names are being created as the text next to each input -->
+                    <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br> <!-- inputs are being created for each label. This type is email format with the email pattern code -->
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="fname" required><br> <!-- br for better line breaks for formatting at the end -->
+                    <label for="lname">Last Name:</label>
+                    <input type="text" id="lname" name="lname" required><br> <!-- the next inputs are all text for user to input their respective info with characters/numbers only -->
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required><br>
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required><br>
+                    <label for="province">Province:</label>
+                    <input type="text" id="province" name="province" placeholder="2-character code" title="Must be a 2 alphanumeric character code" min="2" max="2" required><br> <!-- has a placeholder to show users what should be typed. Also has a title code which displays a message when cursor is hovering -->
+                    <label for="pcode">Postal Code:</label>
+                    <input type="text" id="pcode" name="pcode" placeholder="6 characters" title="Must be 6 alphanumeric characters long" min="6" max="6" required><br>
+                    <label for="pnumber">Phone Number:</label>
+                    <input type="text" id="pnumber" name="pnumber" placeholder="999-999-9999" placeholder="\d{3}[\-]\d{3} [\-]\d{4}" title="Must be in valid phone number format" required><br>
+                    
+                </fieldset> <!-- end of fieldset -->
+                    
+                <fieldset> <!-- begin new fieldset -->
+                    <legend>Ordering Information</legend> <!-- title of fieldset -->
+                    <label for"party">Party:</label> <!--labels are being created for party -->
+                    <input list="partys" name="party" required> <!-- this type is a list for drop down menu -->
+                    <datalist id="partys"> <!-- stores list in the datalist from options below -->
+                    <option value="Fang-tastic Feast"></option> <!-- each option is avalible from the dropdown list -->
+                    <option value="Fright Night"></option>
+                    <option value="Gouls' Night Out"></option>
+                    <option value="Monster Mash"></option>
+                    </datalist> <!-- end of datalist -->
+                    <label for"ordertype">Order Type:</label> <!-- new label -->
+                    <input list="ordertypes" name="ordertype" required> <!-- another list like before, but for ordertypes which will have new items inside datalist -->
+                    <datalist id="ordertypes">
+                    <option value="Member Package"></option>
+                    <option value="Donor Package"></option>
+                    <option value="Single Tickets"></option>
+                    </datalist> <!-- end of datalist -->
+                    <label for"numberoftickets">Number of Tickets:</label> <!-- another label being created -->
+                    <input type="number" id="numberoftickets" name="numberoftickets" min="1" step="1" required> <!-- a number type input used to ask how many tickets are being bought. Has a min value of 1 when buying -->
+                </fieldset> <!-- end of fieldset -->
+                    
+                <fieldset> <!-- new fieldset is made -->
+                    <legend>Payment Method</legend> <!-- title -->
+                    <input type="radio" id="billme" name="paymentmethod" value="billme" required> <!--input type is now radio for click and select options -->
+                    <label for="billme">Bill Me</label> <!-- first option is to bill me -->
+                    <input type="radio" id="creditcard" name="paymentmethod" value="creditcard" required> <!-- another radio made -->
+                    <label for="creditcard">Credit Card</label> <!-- this option is for credit card info pay online. You can only select one of the two at a time -->
+                </fieldset> <!-- end of fieldset -->
+                    
+                <fieldset> <!-- start new fieldset -->
+                    <legend>Credit Card Information</legend> <!-- title -->
+                    <label for="cardtype">Card Type:</label> <!-- new label made -->
+                    <input list="cardtypes" name="cardtype" required> <!--input type list again -->
+                    <datalist id="cardtypes"> <!-- using datalist to store the list values -->
+                    <option value="Visa"></option> <!-- next three lines for data list values -->
+                    <option value="Master Card"></option>
+                    <option value="Discover"></option>
+                    </datalist> <!-- end data list -->
+                    <label for="cardnumber">Card Number:</label> <!-- new label -->
+                    <input type="text" id="cardnumber" name="cardnumber" placeholder="16 digits" pattern="^\d{4}-\d{4}-\d{4}-\d{4}$" title="Must be in valid card number format" required> <!--has placeholder for trasperant text for users to know what format to input. Also has a title for cursor hovering more info. Also has pattern for credit card input formatt. -->
+                    <label for="exdate">Expiration Date:</label> <!-- new label -->
+                    <input list="exdates" name="exdate" required> <!-- another list.... same thing as before but for months being stored -->
+                    <datalist id="exdates">
+                    <option value="January"></option>
+                    <option value="February"></option>
+                    <option value="March"></option>
+                    <option value="April"></option>
+                    <option value="May"></option>
+                    <option value="June"></option>
+                    <option value="July"></option>
+                    <option value="August"></option>
+                    <option value="September"></option>
+                    <option value="October"></option>
+                    <option value="November"></option>
+                    <option value="December"></option>
+                    </datalist> <!-- end of list -->
+                    <input list="exyears" name="exdate" required> <!-- new input list -->
+                    <datalist id="exyears">
+                    <option value="2015"></option> <!-- list of years added to dropdown -->
+                    <option value="2016"></option>
+                    <option value="2017"></option>
+                    <option value="2018"></option>
+                    <option value="2019"></option>
+                    </datalist>
+                </fieldset> <!-- end of fieldset -->
+                
+                <fieldset> <!-- last fieldset made for sumbition -->
+                    <legend>Submit Your Order</legend> <!-- title of legend -->
+                    <input type="reset" value="Reset Fields"> <!-- type reset to clear and reset all inputs from user if needed -->
+                    <input type="submit" value="Submit"> <!-- the last submit value made to finish purchase and move to thank you screen -->
+                </fieldset> <!-- end of fieldset -->
+                </form> <!-- end of form -->
+				
+			</section>
+		</main>
+
+		<!-- footer starts -->
+		<footer>
+			<p>&copy; 2020 Seth Halliwell</p> <!-- my name... of course -->
+		</footer>
+	</body>
+</html>
